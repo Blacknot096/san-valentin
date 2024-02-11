@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres ser mi San Valentín?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fce4ec; /* Color rosadito suave */
+    transition: background-color 0.5s ease;
+  }
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  #si {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+  }
+  #no {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>¿Quieres ser mi San Valentín?</h1>
+
+<div id="container">
+  <button id="si" onclick="respuesta(true)">Sí, acepto</button>
+  <button id="no" onclick="respuesta(false)">No, lo siento</button>
+</div>
+
+<div id="gatitos">
+  <img src="https://i.pinimg.com/236x/89/b7/b7/89b7b7da95b1d99283abf9dbdebf9f9a.jpg" id="imagen-gatitos" alt="Gatitos">
+</div>
+
+<script>
+  let contador = 0;
+
+  function respuesta(acepta) {
+    if (acepta) {
+      document.body.style.backgroundColor = "#ffccff"; /* Cambio de color de fondo a un tono rosado */
+      document.getElementById("gatitos").innerHTML = '<img src="https://i.pinimg.com/originals/84/45/c9/8445c9b61ab70fafa06e518fd72c7172.gif" id="imagen-gatitos" alt="Gatitos conmovidos"><p>¡Yo sabía que sí querías ser mi San Valentín! 😻</p>';
+      document.getElementById("container").innerHTML = '<h2>❤️❤️¡TE AMOOOOOO! ❤️😻❤️</h2>';
+    } else {
+      contador++;
+      if (contador == 1) {
+        document.getElementById("gatitos").innerHTML = '<img src="https://img.freepik.com/vector-premium/lindo-gato-triste-sentado-lluvia-nube-dibujos-animados-vector-icono-ilustracion-animal-naturaleza-icono-aislado_138676-5215.jpg" id="imagen-gatitos" alt="Gatitos tristes"><p>Sabía que tenías otro... 😿</p>';
+      } else if (contador == 2) {
+        document.getElementById("gatitos").innerHTML = '<img src="https://ih1.redbubble.net/image.4852445538.0717/fposter,small,wall_texture,square_product,600x600.jpg" id="imagen-gatitos" alt="Gatitos tristes"><p>¿Por qué sigues diciendo que no? 😿</p>';
+      } else if (contador == 3) {
+        document.getElementById("gatitos").innerHTML = '<img src="https://usagif.com/wp-content/uploads/gifs/sad-cat-71.gif" id="imagen-gatitos" alt="Gatitos tristes"><p>¿Por qué sigues diciendo que no? 😿</p>';
+      } else {
+        document.getElementById("gatitos").innerHTML = '<img src="https://i.pinimg.com/736x/0d/a2/83/0da2834d1cbc00f41e3a97a34cebb74b.jpg" id="imagen-gatitos" alt="Gatitos tristes"><p>No me duele, me lastima... 😿</p>';
+      }
+      document.getElementById("si").style.transform = "scale(" + (1 + contador * 0.1) + ")";
+    }
+  }
+</script>
+
+</body>
+</html>
+
